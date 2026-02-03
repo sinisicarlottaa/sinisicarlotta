@@ -1,0 +1,65 @@
+@use 'styles/colors' as *;
+@use 'styles/typography' as *;
+
+.separator {
+  width: 100%;
+  overflow: hidden;
+  background: $color-bg-hero;
+  border: 3px dotted #7a3a23;
+}
+
+/* contenitore movimento */
+.marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* track animata */
+.marquee-track {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+
+  padding: 14px 0;
+
+  font-family: $font-sans;
+  font-size: $font-medium;
+  letter-spacing: $ls-xmedium;
+  text-transform: uppercase;
+  color: $color-primary;
+
+  animation: marquee 28s linear infinite;
+}
+
+/* singola voce */
+.marquee-track span {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 22px;
+}
+
+.dot {
+  margin-left: 18px;
+  opacity: 0.5;
+}
+
+/* animazione continua */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 600px) {
+  .marquee-track {
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    padding: 12px 0;
+    animation-duration: 22s; // leggermente più veloce su mobile
+  }
+}

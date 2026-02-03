@@ -1,0 +1,81 @@
+<section class="work">
+  <div class="work-inner">
+    <h2 class="work-title">
+      <span class="big">MY</span>
+      <span class="script">work</span>
+    </h2>
+
+    <div class="work-canvas">
+      @for (item of works; track item.title) {
+        <!-- 💻 LAPTOP -->
+        @if (item.type === 'laptop') {
+          <article class="work-item laptop">
+            <div class="work-screen">
+              <h3>{{ item.title }}</h3>
+              <p class="company">{{ item.company }}</p>
+              <p class="period">{{ item.period }}</p>
+
+              <p class="description">{{ item.description.intro }}</p>
+              <p class="description">{{ item.description.body }}</p>
+
+              <ul class="description">
+                @for (skill of item.description.skills; track skill) {
+                  <li>{{ skill }}</li>
+                }
+              </ul>
+
+              <p class="description">{{ item.description.outro }}</p>
+            </div>
+
+            <div class="laptop-base">
+              <div class="keyboard"></div>
+              <div class="trackpad"></div>
+            </div>
+          </article>
+        }
+
+        <!-- ⌨️ KEYBOARD -->
+        @if (item.type === 'keyboard') {
+          <article class="work-item keyboard-shape">
+            <div class="keyboard-content">
+              <h3>{{ item.title }}</h3>
+              <p class="company">{{ item.company }}</p>
+              <p class="period">{{ item.period }}</p>
+
+              <p class="description">{{ item.description.intro }}</p>
+
+              @if (item.description.body) {
+                <p class="description">{{ item.description.body }}</p>
+              }
+
+              @if (item.description.outro) {
+                <p class="description">{{ item.description.outro }}</p>
+              }
+
+              <div class="trackpad"></div>
+            </div>
+          </article>
+        }
+
+        <!-- 🪝 HANGER -->
+        @if (item.type === 'hanger') {
+          <article class="work-item hanger-shape">
+            <div class="hanger">
+              <span class="hook"></span>
+              <span class="arm left"></span>
+              <span class="arm right"></span>
+              <span class="bar"></span>
+            </div>
+
+            <div class="hanger-content">
+              <h3>{{ item.title }}</h3>
+              <p class="company">{{ item.company }}</p>
+              <p class="period">{{ item.period }}</p>
+              <p class="description">{{ item.description.intro }}</p>
+            </div>
+          </article>
+        }
+      }
+    </div>
+  </div>
+</section>

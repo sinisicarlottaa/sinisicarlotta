@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@use 'styles/typography' as *;
+@use 'styles/colors' as *;
+@use 'bootstrap/scss/bootstrap';
+
+body {
+  background-color: $color-bg-hero;
+  margin: 0;
+}
+
+.grid-bg {
+  background-color: $color-bg-hero;
+
+  background-image:
+    linear-gradient(to right, rgba($color-text-primary, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba($color-text-primary, 0.06) 1px, transparent 1px);
+
+  background-size: 32px 32px;
+}

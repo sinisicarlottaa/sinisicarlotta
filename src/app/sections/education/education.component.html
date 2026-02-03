@@ -1,0 +1,32 @@
+<section class="education">
+  <div class="education-inner">
+    <!-- TOP -->
+    <div class="education-top">
+      <div class="education-title">
+        <h2>
+          <span class="big">MY</span>
+          <span class="script">education</span>
+        </h2>
+      </div>
+
+      <div class="education-side">
+        <p class="education-copy">
+          A summary of my academic background, international experiences and education focused on
+          communication, technology and innovation.
+        </p>
+      </div>
+    </div>
+
+    <!-- CARDS -->
+    <div class="education-grid" #educationGrid>
+      @for (item of education; track item.title; let i = $index) {
+        <article class="edu-card" [class.alt]="i % 2 !== 0" [style.--i]="i">
+          <h3>{{ item.title }}</h3>
+          <p class="institution">{{ item.institution }}</p>
+          <p class="period">{{ item.period }}</p>
+          <p class="description">{{ item.description }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>

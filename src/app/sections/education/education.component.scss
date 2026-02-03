@@ -1,0 +1,327 @@
+@use 'styles/typography' as *;
+@use 'styles/colors' as *;
+
+/* ============================
+   EDUCATION – SECTION LAYOUT
+   ============================ */
+
+.education {
+  padding: 100px 0 120px;
+}
+
+.education-inner {
+  width: 90%;
+  margin: 0 auto 20px;
+}
+
+/* ============================
+   TOP AREA (TITLE + COPY)
+   ============================ */
+
+.education-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 48px;
+  margin-bottom: 150px;
+}
+
+/* testo a sinistra */
+.education-side {
+  text-align: left;
+}
+
+.education-copy {
+  margin: 50px 0 0 50px;
+  font-family: $font-sans;
+  font-size: $font-medium;
+  line-height: 1.6;
+  color: $color-text-primary;
+  opacity: 0.85;
+  text-align: right;
+}
+
+/* titolo a destra */
+.education-title {
+  margin-right: 50px;
+  text-align: left;
+}
+
+.education-title h2 {
+  margin: 0;
+  line-height: 0.95;
+  color: $color-text-primary;
+}
+
+.education-title .big {
+  display: block;
+  font-family: $font-sans;
+  font-weight: $fw-semibold;
+  font-size: $font-big;
+  text-transform: uppercase;
+}
+
+.education-title .script {
+  display: block;
+  font-family: $font-serif;
+  font-style: italic;
+  font-weight: $fw-semibold;
+  font-size: $font-script;
+}
+
+/* ============================
+   EDUCATION GRID
+   ============================ */
+
+.education-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+/* ============================
+   EDUCATION CARD – BASE
+   ============================ */
+
+.edu-card {
+  background: $color-bg-hero;
+  color: $color-text-primary;
+
+  border-radius: 26px;
+  padding: 28px 26px;
+  min-height: 260px;
+
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.08),
+    0 32px 64px rgba(0, 0, 0, 0.06);
+
+  /* 🔽 STATO INIZIALE: tutte al centro */
+  position: relative;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  opacity: 0;
+
+  transition:
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 600ms ease,
+    box-shadow 320ms ease,
+    background-color 320ms ease,
+    color 320ms ease;
+}
+
+/* card bordeaux di default */
+.edu-card.alt {
+  background: $color-primary-dark;
+  color: $color-text-inverse;
+}
+
+.edu-card.alt .institution,
+.edu-card.alt .period {
+  opacity: 0.85;
+}
+
+/* ============================
+   ENTER ANIMATION (ON SCROLL)
+   ============================ */
+
+.education-grid.is-active .edu-card {
+  left: 0;
+  top: 0;
+  transform: translate(0, 0) scale(1);
+  opacity: 1;
+
+  /* stagger */
+  transition-delay: calc(var(--i) * 180ms);
+}
+
+/* ============================
+   GROUP MOTION (HOVER GRID)
+   ============================ */
+
+.education-grid.is-active:hover .edu-card {
+  transform: translateY(6px);
+  opacity: 0.9;
+}
+
+.education-grid.is-active .edu-card:hover {
+  transform: translateY(-12px);
+  opacity: 1;
+}
+
+/* ============================
+   COLOR INVERSION LOGIC
+   ============================ */
+
+/* hover su card CHIARA */
+.education-grid.is-active:hover .edu-card:not(.alt):hover {
+  background: $color-primary-dark;
+  color: $color-text-inverse;
+}
+
+.education-grid.is-active:hover .edu-card:not(.alt):not(:hover) {
+  background: $color-bg-hero;
+  color: $color-text-primary;
+}
+
+/* hover su card BORDEAUX */
+.education-grid.is-active:hover .edu-card.alt:hover {
+  background: $color-bg-hero;
+  color: $color-text-primary;
+}
+
+.education-grid.is-active:hover .edu-card.alt:not(:hover) {
+  background: $color-primary-dark;
+  color: $color-text-inverse;
+}
+
+/* ============================
+   CARD TYPOGRAPHY
+   ============================ */
+
+.edu-card h3 {
+  font-family: $font-serif;
+  font-size: $font-xxlarge;
+  margin: 0 0 12px;
+}
+
+.edu-card .institution {
+  font-family: $font-sans;
+  font-weight: $fw-semibold;
+  font-size: $font-large;
+  margin-bottom: 6px;
+}
+
+.edu-card .period {
+  font-size: $font-large;
+  opacity: 0.7;
+  margin-bottom: 14px;
+}
+
+.edu-card .description {
+  font-size: $font-medium;
+  line-height: 1.5;
+}
+
+/* ============================
+   RESPONSIVE – TABLET
+   ============================ */
+
+@media (max-width: 900px) {
+  .education-inner {
+    padding: 0 20px;
+  }
+
+  .education-top {
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 60px;
+  }
+
+  .education-title {
+    margin-right: 0;
+    text-align: left;
+  }
+
+  .education-side {
+    max-width: 520px;
+  }
+
+  .education-copy {
+    margin: 8px 0 0 0;
+    font-size: $font-small;
+    line-height: 1.45;
+  }
+
+  .education-grid {
+    grid-template-columns: 1fr;
+    transition: all 600ms cubic-bezier(0.22, 1, 0.36, 1);
+    perspective: 1000px;
+  }
+
+  /* su tablet/mobile niente sovrapposizione iniziale */
+  .edu-card {
+    left: 0;
+    top: 0;
+    transform: none;
+    opacity: 1;
+    transition:
+      transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 600ms ease;
+  }
+}
+
+/* ============================
+   RESPONSIVE – MOBILE
+   ============================ */
+
+@media (max-width: 600px) {
+  .education-title .big {
+    display: block;
+    font-family: $font-sans;
+    font-weight: $fw-semibold;
+    font-size: $font-big-resp;
+    text-transform: uppercase;
+  }
+
+  .education-title .script {
+    display: block;
+    font-family: $font-serif;
+    font-style: italic;
+    font-weight: $fw-semibold;
+    font-size: $font-script-resp;
+  }
+
+  .education {
+    padding: 50px 0 70px;
+  }
+
+  .education-inner {
+    width: 100%;
+    padding: 0 16px;
+  }
+
+  .edu-card h3 {
+    font-family: $font-serif;
+    font-size: $font-large;
+    margin: 0 0 12px;
+  }
+
+  .edu-card .institution {
+    font-family: $font-sans;
+    font-weight: $fw-semibold;
+    font-size: $font-medium;
+    margin-bottom: 6px;
+  }
+
+  .edu-card .period {
+    font-size: $font-med;
+    opacity: 0.7;
+    margin-bottom: 14px;
+  }
+
+  .edu-card .description {
+    font-size: $font-small;
+    line-height: 1.5;
+  }
+
+  /* =========================
+   MOBILE MICRO ANIMATION (SOFT)
+   ========================= */
+
+  .work-item {
+    transition:
+      transform 260ms cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 260ms ease,
+      opacity 260ms ease;
+  }
+
+  /* tap / focus feedback */
+  .work-item:active,
+  .work-item:focus-within {
+    transform: translateY(2px) !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+    opacity: 0.99;
+  }
+}

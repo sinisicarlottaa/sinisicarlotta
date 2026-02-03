@@ -1,0 +1,589 @@
+@use 'styles/typography' as *;
+@use 'styles/colors' as *;
+
+/* ============================
+   WORK – SECTION LAYOUT
+   ============================ */
+
+.work {
+  padding: 120px 0 250px;
+}
+
+.work-inner {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.work-canvas {
+  position: relative;
+  min-height: 1300px;
+}
+
+.work-title {
+  margin-left: 50px;
+  margin: 0;
+  color: $color-text-primary;
+  line-height: 0.95;
+}
+
+.work-title .big {
+  display: block;
+  font-family: $font-sans;
+  font-weight: $fw-semibold;
+  font-size: $font-big;
+  text-transform: uppercase;
+}
+
+.work-title .script {
+  display: block;
+  font-family: $font-serif;
+  font-weight: $fw-semibold;
+  font-style: italic;
+  font-size: $font-script;
+}
+
+/* ============================
+   BASE ITEM
+   ============================ */
+
+.work-item {
+  position: absolute;
+  font-family: $font-sans;
+  transition:
+    transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 300ms ease;
+}
+
+/* ============================
+   COMMON CONTENT
+   ============================ */
+
+.work-screen {
+  background: $color-bg-hero;
+  border: 2px solid $color-primary-dark;
+  border-radius: 22px;
+  padding: 28px;
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.08),
+    0 32px 64px rgba(0, 0, 0, 0.05);
+}
+
+.work-screen h3,
+.keyboard-content h3,
+.hanger-content h3 {
+  color: $color-text-primary;
+  font-family: $font-serif;
+  font-size: $font-xlarge;
+  margin-bottom: 8px;
+}
+
+.company {
+  color: $color-text-primary;
+
+  font-weight: $fw-semibold;
+  font-size: $font-large;
+  margin-bottom: 8px;
+}
+
+.period {
+  font-size: $font-med;
+  opacity: 0.7;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: $font-medium;
+  color: $color-bg-dark;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+/* ============================
+   LAPTOP
+   ============================ */
+
+.work-item.laptop {
+  top: 0;
+  left: 55%;
+  transform: translateX(-50%);
+  width: max-content;
+}
+
+.work-item.laptop:hover {
+  transform: translateX(-50%) rotate(-0.8deg);
+}
+
+/* ---------- SCREEN ---------- */
+
+.work-item.laptop .work-screen {
+  width: 1000px;
+  max-width: 100vw;
+  padding: 34px 36px;
+
+  position: relative;
+  z-index: 2;
+
+  transform: perspective(1200px) rotateX(-1.5deg);
+}
+
+.work-item.laptop .work-screen::before {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border-radius: 14px;
+  border: 2px solid rgba($color-primary-dark, 0.3);
+  pointer-events: none;
+}
+
+/* ---------- BASE ---------- */
+
+.work-item.laptop .laptop-base {
+  width: 1000px;
+  max-width: 96vw;
+  height: 195px;
+  margin: 0 auto;
+
+  background: $color-bg-hero;
+  border: 2px solid $color-primary-dark;
+  border-radius: 11px 11px 28px 28px;
+
+  transform: perspective(900px) rotateX(18deg);
+  transform-origin: top;
+
+  position: relative;
+  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.12);
+}
+
+.work-item.laptop .laptop-base::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -10px;
+  transform: translateX(-50%);
+
+  width: 160px;
+  height: 10px;
+
+  background: $color-bg-hero;
+  border: 2px solid $color-primary-dark;
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+}
+
+/* ---------- KEYBOARD GRID ---------- */
+
+.work-item.laptop .keyboard {
+  position: absolute;
+  top: 12px;
+  left: 26px;
+  right: 26px;
+  height: 140px;
+
+  background:
+    repeating-linear-gradient(
+      to right,
+      rgba($color-primary-dark, 0.4) 0,
+      rgba($color-primary-dark, 0.4) 1px,
+      transparent 1px,
+      transparent 26px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      rgba($color-primary-dark, 0.4) 0,
+      rgba($color-primary-dark, 0.4) 1px,
+      transparent 1px,
+      transparent 26px
+    );
+
+  border-radius: 8px;
+  border: 2px solid $color-primary-dark;
+
+  opacity: 0.55;
+}
+
+/* ---------- TRACKPAD ---------- */
+
+.work-item.laptop .trackpad {
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 120px;
+  height: 25px;
+
+  background: $color-bg-hero;
+  border: 2px solid $color-primary-dark;
+  border-radius: 10px;
+}
+
+/* ============================
+   KEYBOARD (BOTTOM LEFT)
+   ============================ */
+
+.work-item.keyboard-shape {
+  bottom: 0;
+  left: 0;
+  width: 850px;
+  padding: 22px 28px 64px;
+
+  background: $color-bg-hero;
+  border: 2px solid $color-primary-dark;
+  border-radius: 18px;
+
+  transform: translateY(150px);
+  box-shadow: 0 20px 34px rgba(0, 0, 0, 0.14);
+}
+
+.work-item.keyboard-shape:hover {
+  transform: translateY(142px); // movimento minimo
+  box-shadow: 0 28px 44px rgba(0, 0, 0, 0.18);
+}
+
+/* key grid */
+
+.work-item.keyboard-shape::after {
+  content: '';
+  position: absolute;
+  inset: 20px 24px 66px;
+
+  background:
+    repeating-linear-gradient(
+      to right,
+      rgba($color-primary-dark, 0.25) 0,
+      rgba($color-primary-dark, 0.25) 1.5px,
+      transparent 1.5px,
+      transparent 32px
+    ),
+    repeating-linear-gradient(
+      to bottom,
+      rgba($color-primary-dark, 0.22) 0,
+      rgba($color-primary-dark, 0.22) 1.5px,
+      transparent 1.5px,
+      transparent 32px
+    );
+
+  border: 2px solid rgba($color-primary-dark, 0.35);
+  border-radius: 10px;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* trackpad */
+
+.work-item.keyboard-shape .trackpad {
+  position: absolute;
+  bottom: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 160px;
+  height: 50px;
+
+  background: $color-bg-hero;
+  border: 2px solid $color-primary-dark;
+  border-radius: 12px;
+}
+
+/* ============================
+   HANGER (BOTTOM RIGHT)
+   ============================ */
+
+.work-item.hanger-shape {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 520px;
+  transform: translateY(110px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+
+  gap: 18px; // spazio tra gruccia e card
+}
+
+.work-item.hanger-shape:hover {
+  transform: translateY(102px);
+}
+
+.hanger {
+  position: relative;
+  width: 360px;
+  height: 120px;
+}
+
+.hanger-content {
+  position: relative;
+}
+
+.hook {
+  position: absolute;
+  top: 14px;
+  left: 45%;
+  transform: translateX(-50%);
+
+  width: 40px;
+  height: 50px;
+
+  border: 2px solid $color-primary-dark;
+  border-bottom: none;
+  border-radius: 50% 50% 0 0;
+}
+
+.arm {
+  position: absolute;
+  top: 63px;
+  width: 220px;
+  height: 2px;
+  background: $color-primary-dark;
+}
+
+.arm.left {
+  left: 50%;
+  transform-origin: left center;
+  transform: rotate(28deg);
+}
+
+.arm.right {
+  right: 50%;
+  transform-origin: right center;
+  transform: rotate(-28deg);
+}
+
+.hanger-content {
+  margin-top: 10px;
+  padding: 28px 32px;
+
+  width: 100%;
+  max-width: 500px;
+
+  background: $color-bg-hero;
+  border: 2px solid $color-primary-dark;
+  border-radius: 22px;
+
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.12);
+}
+
+.hook {
+  left: 45%;
+  transform: translateX(-50%);
+  transform-origin: center bottom;
+  transition: transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.arm {
+  transition: transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.hanger-content {
+  transform-origin: center top;
+  transition:
+    transform 500ms cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 400ms ease;
+}
+
+.work-item.hanger-shape:hover {
+  transform: translateY(100px); // quasi impercettibile
+}
+
+.work-item.hanger-shape:hover .hook {
+  transform: translateX(-50%) rotate(2deg);
+}
+
+.work-item.hanger-shape:hover .arm.left {
+  transform: rotate(26deg);
+}
+
+.work-item.hanger-shape:hover .arm.right {
+  transform: rotate(-26deg);
+}
+
+.work-item.hanger-shape:hover .hanger-content {
+  transform: translateY(4px) rotate(0.4deg);
+  box-shadow: 0 34px 54px rgba(0, 0, 0, 0.22);
+}
+/* ============================
+   RESPONSIVE
+   ============================ */
+
+@media (max-width: 900px) {
+  .work {
+    padding: 50px 0 70px;
+  }
+  .work-title .big {
+    font-size: $font-big-resp;
+  }
+
+  .work-title .script {
+    font-size: $font-script-resp;
+  }
+
+  .work-screen h3,
+  .keyboard-content h3,
+  .hanger-content h3 {
+    color: $color-text-primary;
+    font-family: $font-serif;
+    font-size: $font-large;
+    margin-bottom: 8px;
+  }
+
+  .company {
+    color: $color-text-primary;
+    font-weight: $fw-semibold;
+    font-size: $font-medium;
+    margin-bottom: 8px;
+  }
+
+  .period {
+    font-size: $font-med;
+    opacity: 0.7;
+    margin-bottom: 10px;
+  }
+
+  .description {
+    font-size: $font-small;
+    color: $color-bg-dark;
+    line-height: 1.5;
+    white-space: pre-line;
+  }
+
+  // --------------------
+
+  .work-canvas {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+    min-height: auto;
+  }
+
+  .work-item {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    transform: none; /* allow :active to override */
+    cursor: pointer; /* enables :active reliably on mobile */
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* reset desktop transforms per-shape (no !important) */
+  .work-item.laptop,
+  .work-item.keyboard-shape,
+  .work-item.hanger-shape {
+    transform: none;
+  }
+
+  /* =========================
+   LAPTOP
+   ========================= */
+
+  .work-item.laptop {
+    left: auto;
+    width: 100%;
+    max-width: 720px; /* scegli tu: 680–760 */
+    margin: 0 auto; /* ✅ centra */
+  }
+
+  .work-item.laptop .work-screen {
+    width: 100%;
+    max-width: 100%;
+    padding: 22px;
+  }
+
+  .work-item.laptop .laptop-base {
+    width: 100%;
+    max-width: 100%;
+    height: 120px;
+  }
+
+  .work-item.laptop .keyboard {
+    height: 70px;
+    left: 14px;
+    right: 14px;
+  }
+
+  .work-item.laptop .trackpad {
+    width: 86px;
+    height: 20px;
+  }
+
+  /* =========================
+     KEYBOARD
+     ========================= */
+
+  .work-item.keyboard-shape {
+    width: 100%;
+    padding: 20px 20px 80px;
+    transform: none;
+  }
+
+  .work-item.keyboard-shape::after {
+    inset: 20px 16px 60px;
+  }
+
+  .work-item.keyboard-shape .trackpad {
+    width: 120px;
+    height: 40px;
+  }
+
+  /* =========================
+     HANGER
+     ========================= */
+
+  .work-canvas {
+    padding-bottom: 520px;
+  }
+
+  .work-item.hanger-shape {
+    width: 100%;
+    transform: none;
+    align-items: center;
+  }
+
+  .hanger {
+    width: 260px;
+    height: 90px;
+  }
+
+  .arm {
+    width: 150px;
+  }
+
+  .hanger-content {
+    max-width: 100%;
+    padding: 24px;
+  }
+
+  /* disabilitiamo hover “fisici” su mobile */
+  .work-item:hover,
+  .work-item.hanger-shape:hover,
+  .work-item.keyboard-shape:hover,
+  .work-item.laptop:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* =========================
+   MOBILE MICRO ANIMATION
+   ========================= */
+
+  .work-item {
+    transition:
+      transform 220ms ease,
+      box-shadow 220ms ease,
+      opacity 220ms ease;
+  }
+
+  /* tap / focus feedback */
+  .work-item:active,
+  .work-item:focus-within {
+    transform: translateY(4px) !important; /* beats any remaining transforms */
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.14);
+    opacity: 0.98;
+  }
+}

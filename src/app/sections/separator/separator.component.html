@@ -1,0 +1,14 @@
+<div class="separator">
+  <div class="marquee">
+    <div class="marquee-track">
+      @for (item of items; track item) {
+        <span> {{ item }} <span class="dot">•</span> </span>
+      }
+
+      <!-- duplicato per loop infinito -->
+      @for (item of items; track item + '-dup') {
+        <span> {{ item }} <span class="dot">•</span> </span>
+      }
+    </div>
+  </div>
+</div>

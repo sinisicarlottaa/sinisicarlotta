@@ -1,0 +1,36 @@
+<section class="skills" #skillsSection>
+  <div class="skills-inner">
+    <div class="skills-top">
+      <div class="skills-title">
+        <h2>
+          <span class="big">MY CORE</span>
+          <span class="script">skills</span>
+        </h2>
+      </div>
+
+      <div class="skills-side">
+        <p class="skills-copy">
+          A selection of technical and soft skills developed<br />
+          through academic projects and hands-on experience in <br />frontend development and UX/UI
+          design.
+        </p>
+      </div>
+    </div>
+
+    <!-- PILLS AREA -->
+    <div
+      class="pills"
+      #pillsContainer
+      (mousemove)="onMouseMove($event)"
+      (mouseleave)="onMouseLeave()"
+      (touchmove)="onTouchMove($event)"
+      (touchend)="onMouseLeave()"
+    >
+      @for (p of activePills; track p.label; let i = $index) {
+        <div class="pill" [style.--x]="p.x" [style.--y]="p.y" [style.--r]="p.r">
+          {{ p.label }}
+        </div>
+      }
+    </div>
+  </div>
+</section>
