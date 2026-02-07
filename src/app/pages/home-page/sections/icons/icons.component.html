@@ -1,11 +1,21 @@
 <section class="icons">
   <div class="icons-inner">
-    <h2 class="icons-title">
-      <span class="big">MY</span>
-      <span class="script">tools</span>
-    </h2>
+    <div class="icons-top">
+      <div class="icons-title">
+        <h2>
+          <span class="big">MY</span>
+          <span class="script">tools</span>
+        </h2>
+      </div>
 
-    <div class="icons-grid">
+      <p class="icons-copy">
+        Try <span class="bold">dragging</span> and <span class="bold">rearranging</span> the icons
+        <br />
+        by moving them onto each other!
+      </p>
+    </div>
+
+    <div class="icons-grid" #iconsGrid>
       <article class="icon-item">
         <div class="icon-circle">
           <img src="img/html.png" alt="HTML" />
@@ -22,18 +32,14 @@
 
       <article class="icon-item">
         <div class="icon-circle">
-          <img src="img/js.png" alt="JavaScript" style="width: 105px; height: 105px" />
+          <img src="img/js.png" alt="JavaScript" class="icon-img js" />
         </div>
         <span class="icon-label">JavaScript</span>
       </article>
 
       <article class="icon-item">
         <div class="icon-circle">
-          <img
-            src="img/angular.png"
-            alt="Angular"
-            style="width: 110px; height: 120px; padding-top: 8px"
-          />
+          <img src="img/angular.png" alt="Angular" class="icon-img angular" />
         </div>
         <span class="icon-label">Angular</span>
       </article>
@@ -61,14 +67,14 @@
 
       <article class="icon-item">
         <div class="icon-circle">
-          <img src="img/figma.png" alt="Figma" style="width: 130px; height: 130px" />
+          <img src="img/figma.png" alt="Figma" class="icon-img figma" />
         </div>
         <span class="icon-label">Figma</span>
       </article>
 
       <article class="icon-item">
         <div class="icon-circle">
-          <img src="img/canva.png" alt="Canva" style="width: 130px; height: 130px" />
+          <img src="img/canva.png" alt="Canva" class="icon-img canva" />
         </div>
         <span class="icon-label">Canva</span>
       </article>

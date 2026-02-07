@@ -1,17 +1,18 @@
-import { ChangeDetectorRef, Component, ElementRef, signal, ViewChild } from '@angular/core';
+import { Component, ElementRef, signal, ViewChild } from '@angular/core';
+import { HeaderComponent } from '../../../header/header/header.component';
 
 @Component({
   selector: 'app-hero',
-  imports: [],
+  imports: [HeaderComponent],
   standalone: true,
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
 })
 export class HeroComponent {
-  menuOpen = false;
+  activeInfo: number | null = null;
 
-  toggleMenu() {
-    this.menuOpen = !this.menuOpen;
+  toggleInfo(index: number) {
+    this.activeInfo = this.activeInfo === index ? null : index;
   }
 
   @ViewChild('heroSection', { static: true })

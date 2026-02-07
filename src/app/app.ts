@@ -1,11 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeroComponent } from './sections/hero/hero.component';
-import { SkillsComponent } from './sections/skills/skills.component';
-import { SeparatorComponent } from './sections/separator/separator.component';
-import { EducationComponent } from './sections/education/education.component';
-import { WorkComponent } from './sections/work/work.component';
-import { IconsComponent } from './sections/icons/icons.component';
+import { HeroComponent } from './pages/home-page/sections/hero/hero.component';
+import { SkillsComponent } from './pages/home-page/sections/skills/skills.component';
+import { SeparatorComponent } from './pages/home-page/separator/separator.component';
+import { EducationComponent } from './pages/home-page/sections/education/education.component';
+import { WorkComponent } from './pages/home-page/sections/work/work.component';
+import { IconsComponent } from './pages/home-page/sections/icons/icons.component';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +16,7 @@ import { IconsComponent } from './sections/icons/icons.component';
     EducationComponent,
     WorkComponent,
     IconsComponent,
+    RouterOutlet,
   ],
   templateUrl: './app.html',
   styleUrl: './app.scss',

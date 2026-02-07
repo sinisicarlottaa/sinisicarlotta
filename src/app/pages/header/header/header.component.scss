@@ -1,0 +1,227 @@
+@use 'styles/typography' as *;
+@use 'styles/colors' as *;
+
+/* =========================
+   NAV WRAPPER
+   ========================= */
+
+.hero-nav {
+  position: absolute;
+  top: 30px;
+  left: 60px;
+  right: 60px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-family: $font-sans;
+  z-index: 10;
+}
+
+/* =========================
+   LOGO
+   ========================= */
+
+.logo {
+  font-family: $font-serif;
+  font-size: $font-logo;
+  font-weight: $fw-semibold;
+  color: $color-text-primary;
+  cursor: pointer;
+}
+
+/* =========================
+   HAMBURGER
+   ========================= */
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  span {
+    display: block;
+    width: 26px;
+    height: 2px;
+    background: $color-text-primary;
+    margin: 6px 0;
+    transition: all 0.3s ease;
+  }
+}
+
+/* =========================
+   DESKTOP NAV
+   ========================= */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    position: relative;
+    font-size: $font-medium;
+    text-transform: uppercase;
+    letter-spacing: $ls-medium;
+    font-family: $font-sans;
+    cursor: pointer;
+
+    color: $color-text-primary;
+
+    transition:
+      color 0.3s ease,
+      transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* ✨ HOVER */
+  li:hover {
+    color: $color-primary-dark;
+    transform: translateY(-3px) scale(1.05);
+  }
+
+  /* underline più decisa */
+  li::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    width: 0;
+    height: 2px; /* ⬅️ più spessa */
+    background: $color-primary-dark;
+    border-radius: 2px;
+    opacity: 0;
+    transition:
+      width 0.3s ease,
+      left 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  li:hover::after {
+    width: 70%;
+    left: 15%;
+    opacity: 1;
+  }
+}
+
+/* =========================
+   SOCIAL ROW
+   ========================= */
+
+.social-row {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-left: 1rem;
+}
+
+.social-row a {
+  font-size: $font-link;
+  color: $color-text-primary;
+  display: flex;
+  align-items: center;
+
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.3s ease,
+    filter 0.3s ease;
+}
+
+/* 🔥 hover SOLO sull’icona */
+.social-row a:hover {
+  transform: translateY(-5px) scale(1.12);
+  opacity: 1;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.25));
+}
+
+/* opzionale: le altre si attenuano */
+.social-row:hover a:not(:hover) {
+  opacity: 0.35;
+}
+
+/* =========================
+   MOBILE / TABLET
+   ========================= */
+
+@media (max-width: 900px) {
+  .hamburger {
+    display: block;
+    z-index: 20;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 56px;
+    right: 0; /* ✅ non negativo */
+
+    background: $color-bg-hero;
+    border-radius: 18px;
+
+    padding: 20px 20px;
+    width: 160px; /* ✅ larghezza fissa */
+
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    box-shadow:
+      0 12px 30px rgba(0, 0, 0, 0.12),
+      0 32px 64px rgba(0, 0, 0, 0.08);
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+
+    li {
+      width: 100%;
+      text-align: center;
+      font-size: $font-xsmall;
+      letter-spacing: $ls-medium;
+    }
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  /* SOCIAL ROW */
+  .social-row {
+    width: 100%;
+    justify-content: center;
+    gap: 20px;
+    margin-left: 0px;
+
+    margin-top: 0px;
+    padding-top: 14px;
+
+    border-top: 1px solid rgba($color-text-primary, 0.15);
+  }
+
+  .social-row a {
+    font-size: 1.3rem;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+  .hero-nav {
+    left: 20px;
+    right: 20px;
+    top: 24px;
+  }
+
+  .logo {
+    font-size: calc($font-logo * 0.85);
+  }
+}

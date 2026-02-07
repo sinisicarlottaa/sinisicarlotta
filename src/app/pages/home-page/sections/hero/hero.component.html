@@ -1,0 +1,75 @@
+<app-header />
+
+<section class="hero" #heroSection>
+  <div class="hero-inner">
+    <!-- LEFT -->
+    <div class="hero-side left">
+      <p>
+        Bachelor’s graduate in<span class="text-uppercase fw-semibold">
+          Information <br />and Communication Technologies (ICT)
+        </span>
+      </p>
+    </div>
+
+    <!-- CENTER -->
+    <div class="hero-center">
+      <h1 class="hero-title">
+        <span class="typing">{{ typedText() }}</span>
+      </h1>
+
+      <img src="/img/hero.png" alt="Carlotta portrait" class="hero-image" />
+    </div>
+
+    <!-- RIGHT -->
+    <div class="hero-side right">
+      <p>
+        <span class="text-uppercase fw-semibold">Junior Frontend Developer</span> with a strong
+        <br />interest in web development, UX/UI design, <br />photography, and social media
+        management.
+      </p>
+    </div>
+  </div>
+  <a href="/cv.pdf" download="Carlotta_Sinisi_CV.pdf" class="cta-btn"> Download CV </a>
+
+  <div class="hero-info-dots">
+    <button class="info-dot" (click)="toggleInfo(0)">
+      <span class="mouse-wrap">
+        <span class="mouse-icon"></span>
+      </span>
+
+      <span class="info-label-wrap">
+        <span class="info-label" [class.open]="activeInfo === 0"> sinisicarlotta@gmail.com </span>
+      </span>
+    </button>
+
+    <button class="info-dot" (click)="toggleInfo(1)">
+      <span class="mouse-wrap">
+        <span class="mouse-icon"></span>
+      </span>
+
+      <span class="info-label-wrap">
+        <span class="info-label" [class.open]="activeInfo === 1"> Turin, Italy </span>
+      </span>
+    </button>
+
+    <button class="info-dot" (click)="toggleInfo(2)">
+      <span class="mouse-wrap">
+        <span class="mouse-icon"></span>
+      </span>
+
+      <span class="info-label-wrap">
+        <span class="info-label" [class.open]="activeInfo === 2"> +39 366 458 7616 </span>
+      </span>
+    </button>
+
+    <button class="info-dot" (click)="toggleInfo(3)">
+      <span class="mouse-wrap">
+        <span class="mouse-icon"></span>
+      </span>
+
+      <span class="info-label-wrap">
+        <span class="info-label" [class.open]="activeInfo === 3"> Category B Driving License </span>
+      </span>
+    </button>
+  </div>
+</section>

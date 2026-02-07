@@ -6,7 +6,7 @@
    ============================ */
 
 .education {
-  padding: 100px 0 120px;
+  padding: 60px 0 80px;
 }
 
 .education-inner {
@@ -23,7 +23,7 @@
   align-items: flex-start;
   justify-content: space-between;
   gap: 48px;
-  margin-bottom: 150px;
+  margin-bottom: 120px;
 }
 
 /* testo a sinistra */
@@ -42,19 +42,27 @@
 }
 
 /* titolo a destra */
+/* titolo a destra */
 .education-title {
+  display: flex;
+  align-items: baseline; /* allinea sans + serif */
+  gap: 14px;
+
   margin-right: 50px;
   text-align: left;
+  color: $color-text-primary;
+  line-height: 1;
 }
 
 .education-title h2 {
   margin: 0;
-  line-height: 0.95;
-  color: $color-text-primary;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
 }
 
 .education-title .big {
-  display: block;
+  display: inline-block; /* ⬅️ invece di block */
   font-family: $font-sans;
   font-weight: $fw-semibold;
   font-size: $font-big;
@@ -62,7 +70,7 @@
 }
 
 .education-title .script {
-  display: block;
+  display: inline-block; /* ⬅️ invece di block */
   font-family: $font-serif;
   font-style: italic;
   font-weight: $fw-semibold;

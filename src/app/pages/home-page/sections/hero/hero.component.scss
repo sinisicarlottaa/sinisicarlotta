@@ -1,0 +1,714 @@
+@use 'styles/typography' as *;
+@use 'styles/colors' as *;
+
+.hero,
+.hero-inner {
+  overflow-x: hidden;
+}
+
+.hero {
+  position: relative;
+  background-color: $color-bg-hero;
+  min-height: 100vh;
+  padding-top: 140px;
+
+  /* ===== GRID BACKGROUND ===== */
+  background-image:
+    linear-gradient(to right, rgba($color-text-primary, 0.09) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba($color-text-primary, 0.09) 1px, transparent 1px);
+
+  background-size: 32px 32px;
+}
+
+.hero-inner {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+  transform: translateX(60px);
+}
+
+/* SIDE TEXT */
+.hero-side {
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  font-family: $font-sans;
+  font-size: $font-medium;
+  letter-spacing: $ls-wide;
+  color: $color-text-primary;
+
+  &.left {
+    left: 5px;
+    text-align: left;
+  }
+
+  &.right {
+    right: 150px;
+    text-align: right;
+  }
+
+  p {
+    margin: 0;
+    line-height: 1.6;
+  }
+}
+
+/* CENTER BLOCK */
+.hero-center {
+  position: relative;
+  text-align: center;
+  left: 40px;
+}
+
+/* TITLE */
+.hero-title {
+  font-family: $font-serif;
+  font-size: $font-hero-title;
+  font-weight: $fw-semibold;
+  color: $color-text-primary;
+  margin-bottom: -70px;
+  z-index: 2;
+  position: relative;
+
+  span {
+    font-style: italic;
+  }
+}
+
+/* IMAGE */
+.hero-image {
+  width: 560px;
+  max-width: 95vw;
+  z-index: 1;
+  margin-right: 100px;
+  position: relative;
+}
+
+/* ARROWS */
+.hero-side.left::after {
+  content: '';
+  position: absolute;
+  right: -120px;
+  top: 50px;
+  width: 120px;
+  height: 60px;
+  background-image: url('/img/arrow.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.hero-side.right::before {
+  content: '';
+  position: absolute;
+  left: -50px;
+  top: 120px;
+  width: 120px;
+  height: 60px;
+  background-image: url('/img/arrow.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: scaleX(-1);
+}
+
+.cta-btn {
+  position: absolute;
+  right: 300px;
+  top: 78%;
+  transform: translateY(-50%);
+
+  background: $color-primary-dark;
+  color: $color-text-inverse;
+  border: none;
+  border-radius: 40px;
+
+  padding: 0.6rem 1.6rem;
+
+  font-family: $font-sans;
+  font-size: $font-small;
+  letter-spacing: $ls-small;
+
+  cursor: pointer;
+  text-decoration: none;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+
+  &:hover {
+    transform: translateY(-50%) scale(1.05);
+    box-shadow:
+      0 8px 20px rgba(0, 0, 0, 0.18),
+      0 20px 40px rgba(0, 0, 0, 0.08);
+  }
+}
+
+.typing::after {
+  content: '|';
+  margin-left: 4px;
+  animation: blink 2s infinite;
+}
+
+/* =========================
+   HERO INFO DOTS
+   ========================= */
+.hero-info-dots {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  gap: 22px;
+  align-items: center;
+
+  z-index: 5;
+}
+
+/* BUTTON */
+.info-dot {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 0;
+
+  cursor: pointer;
+}
+
+/* =========================
+   INFO DOTS
+   ========================= */
+
+.hero-info-dots {
+  position: absolute;
+  top: 58%; /* centro verticale hero */
+  left: 50%; /* centro orizzontale hero */
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 6;
+}
+
+/* =========================
+   INFO DOT – BUTTON
+   ========================= */
+
+.info-dot {
+  position: absolute;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  pointer-events: auto;
+
+  /* default vars */
+  --x: 0px;
+  --y: 0px;
+  --rot: 0deg;
+  --fx: 0px;
+  --fy: 0px;
+
+  /* solo posizione */
+  transform: translate(var(--x), var(--y));
+}
+
+/* =========================
+   DOT POSITIONS
+   ========================= */
+
+.info-dot:nth-child(1) {
+  --x: -620px;
+  --y: -260px;
+  --rot: 68deg;
+  --fx: 10px;
+  --fy: 10px;
+
+  --label-bottom: 80px;
+}
+
+.info-dot:nth-child(2) {
+  --x: 380px;
+  --y: -140px;
+  --rot: -26deg;
+  --fx: 10px;
+  --fy: 10px;
+
+  --label-bottom: 50px;
+}
+
+.info-dot:nth-child(3) {
+  --x: -440px;
+  --y: 110px;
+  --rot: -8deg;
+  --fx: 10px;
+  --fy: 10px;
+
+  --label-bottom: -80px;
+}
+
+.info-dot:nth-child(4) {
+  --x: 660px;
+  --y: 320px;
+  --rot: 24deg;
+  --fx: 10px;
+  --fy: 10px;
+
+  --label-bottom: 80px;
+}
+
+/* =========================
+   MOUSE – ANIMATION WRAP
+   ========================= */
+
+.mouse-wrap {
+  display: block;
+  width: 80px;
+  height: 80px;
+
+  animation:
+    pulse-soft 3.2s ease-in-out infinite,
+    float-soft 15s ease-in-out infinite;
+
+  will-change: transform, filter;
+}
+
+/* =========================
+   MOUSE ICON (ROTATION ONLY)
+   ========================= */
+
+.mouse-icon {
+  display: block;
+  width: 80px;
+  height: 80px;
+
+  background: url('/img/mouse.png') center / contain no-repeat;
+
+  transform: rotate(var(--rot));
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
+
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.25s ease;
+}
+
+/* =========================
+   INTERACTIONS
+   ========================= */
+
+/* hover */
+.info-dot:hover .mouse-wrap {
+  animation-play-state: paused;
+}
+
+.info-dot:hover .mouse-icon {
+  transform: rotate(var(--rot)) scale(1.25);
+  filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.32));
+}
+
+/* click feedback */
+.info-dot:active .mouse-icon {
+  transform: rotate(var(--rot)) scale(1.1);
+}
+
+/* click open → fermo */
+.info-dot:has(.info-label.open) .mouse-icon {
+  animation-play-state: paused;
+  transform: scale(1.1);
+}
+
+/* =========================
+   INFO LABEL (STRAIGHT)
+   ========================= */
+
+.info-label {
+  position: absolute;
+  left: 50%;
+  bottom: var(--label-bottom, 80px);
+  transform: translateX(-50%) translateY(10px) scale(0.92);
+
+  opacity: 0;
+  pointer-events: none;
+
+  background: rgba($color-bg-hero, 0.92);
+  border: 1px solid rgba($color-text-primary, 0.12);
+  backdrop-filter: blur(8px);
+
+  color: $color-primary-dark;
+  font-family: $font-serif;
+  font-weight: $fw-bold;
+  font-size: $font-medium;
+  letter-spacing: 0.04em;
+
+  padding: 14px 26px;
+  border-radius: 999px;
+  white-space: nowrap;
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.18),
+    0 40px 90px rgba(0, 0, 0, 0.1);
+
+  transition:
+    opacity 0.25s ease,
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.info-label.open {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+/* =========================
+   ANIMATIONS
+   ========================= */
+
+@keyframes pulse-soft {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.22));
+  }
+  50% {
+    transform: scale(1.22);
+    filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.32));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.22));
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(var(--fx), var(--fy));
+  }
+}
+
+@keyframes blink {
+  0%,
+  50%,
+  100% {
+    opacity: 1;
+  }
+  25%,
+  75% {
+    opacity: 0;
+  }
+}
+
+/* =========================
+   TABLET & SMALL DESKTOP
+   ========================= */
+@media (max-width: 900px) {
+  /* HERO */
+  .hero-inner {
+    transform: none;
+    margin-top: 40px;
+  }
+
+  .hero-center {
+    left: 0;
+  }
+
+  .hero-image {
+    margin-left: 0;
+  }
+
+  /* NAV */
+  .hamburger {
+    display: block;
+    z-index: 20;
+    padding: 0;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 56px;
+    right: 0;
+
+    background: $color-bg-hero;
+    border-radius: 18px;
+
+    padding: 24px 26px;
+    min-width: 170px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+
+    box-shadow:
+      0 12px 30px rgba(0, 0, 0, 0.12),
+      0 32px 64px rgba(0, 0, 0, 0.08);
+
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+
+    li {
+      width: 100%;
+      text-align: center;
+      font-size: $font-xsmall;
+      letter-spacing: $ls-medium;
+    }
+  }
+
+  .nav-links.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   MOBILE
+   ========================= */
+@media (max-width: 600px) {
+  /* HERO WRAPPER */
+  .hero {
+    padding-top: 70px;
+    min-height: auto;
+    margin-bottom: 70px;
+    overflow-x: hidden;
+  }
+
+  .hero-inner {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 12px;
+  }
+
+  /* TITLE */
+  .hero-title {
+    font-size: clamp(2.4rem, 9vw, 3.2rem);
+    margin-bottom: -30px;
+    text-align: center;
+  }
+
+  /* IMAGE */
+  .hero-image {
+    width: 280px;
+    max-width: 80vw;
+    left: 65px;
+    margin-top: 8px;
+  }
+
+  /* SIDE TEXT */
+  .hero-side {
+    font-size: 0.6rem;
+    line-height: 1.4;
+    max-width: 110px;
+    top: 44%;
+    z-index: 2;
+
+    &.left {
+      left: 8px;
+      text-align: left;
+    }
+
+    &.right {
+      right: 8px;
+      text-align: right;
+    }
+  }
+
+  /* ARROWS */
+  .hero-side.left::after,
+  .hero-side.right::before {
+    width: 60px;
+    height: 54px;
+    opacity: 0.6;
+  }
+
+  .hero-side.left::after {
+    right: 0;
+    top: 110px;
+  }
+
+  .hero-side.right::before {
+    left: 0;
+    top: 160px;
+  }
+
+  /* CTA */
+  .cta-btn {
+    position: static;
+    transform: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 130px;
+    max-width: calc(100% - 24px);
+    padding: 0.6rem 1.6rem;
+
+    font-family: $font-sans;
+    font-size: $font-xsmall;
+    letter-spacing: $ls-small;
+
+    margin: 28px auto 0; /* ✅ centra orizzontalmente */
+    border-radius: 999px;
+
+    white-space: nowrap;
+  }
+
+  /* =========================
+   MOBILE MOUSE DOT (DOT)
+   ========================= */
+
+  /* nasconde il mouse desktop */
+  .mouse-icon {
+    display: block;
+    width: 25px;
+    height: 25px;
+
+    background: url('/img/mouse.png') center / contain no-repeat;
+
+    opacity: 0.9;
+    transform-origin: center;
+
+    animation: dot-pulse 2.4s ease-in-out infinite;
+  }
+
+  .hero-info-dots {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 260px; /* area di controllo */
+    height: 60px;
+
+    pointer-events: auto;
+  }
+
+  /* reset base */
+  .info-dot {
+    position: absolute;
+    transform: none;
+  }
+
+  /* SINISTRA */
+  .info-dot:nth-child(1) {
+    left: -60px;
+    top: -68px;
+    --rot: 60deg;
+  }
+
+  .info-dot:nth-child(2) {
+    left: -45px;
+    top: 160px;
+    --rot: 6deg;
+  }
+
+  /* DESTRA */
+  .info-dot:nth-child(3) {
+    left: 290px;
+    top: -105px;
+  }
+
+  .info-dot:nth-child(4) {
+    // left: 240px;
+    // top: 245px;
+    // --rot: 60deg;
+    left: 280px;
+    top: 170px;
+  }
+
+  /* SINISTRA – sopra */
+  .info-dot:nth-child(1) {
+    --label-x: 15px;
+    --label-y: -83px;
+  }
+
+  /* SINISTRA – sotto */
+  .info-dot:nth-child(2) {
+    --label-x: -32px;
+    --label-y: -84px;
+  }
+
+  /* DESTRA – sopra */
+  .info-dot:nth-child(3) {
+    --label-x: -42px;
+    --label-y: -80px;
+  }
+
+  /* DESTRA – sotto */
+  .info-dot:nth-child(4) {
+    --label-x: -60px;
+    --label-y: -83px;
+  }
+
+  /* niente hover aggressivo */
+  .info-dot:hover .mouse-icon {
+    transform: scale(1);
+    filter: none;
+  }
+
+  /* tap feedback */
+  .info-dot:active .mouse-icon {
+    transform: scale(0.9);
+  }
+
+  /* BLOCCA OGNI MOVIMENTO SPAZIALE */
+  .mouse-wrap {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .info-label {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+
+    transform: translateX(calc(-50% + var(--label-x, 0px))) translateY(var(--label-y, 32px))
+      scale(0.95);
+
+    opacity: 0;
+    pointer-events: none;
+
+    font-size: $font-xxsmall;
+    font-weight: $fw-semibold;
+    letter-spacing: $ls-xsmall;
+    padding: 8px 14px;
+    border-radius: 999px;
+
+    transition:
+      opacity 0.25s ease,
+      transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .info-label.open {
+    opacity: 1;
+    transform: translateX(calc(-50% + var(--label-x, 0px))) translateY(var(--label-y, 32px))
+      scale(1);
+    box-shadow:
+      0 8px 18px rgba(0, 0, 0, 0.14),
+      0 18px 36px rgba(0, 0, 0, 0.08);
+  }
+
+  /* animazione dot */
+  @keyframes dot-pulse {
+    0% {
+      transform: rotate(var(--rot)) scale(1);
+      opacity: 0.7;
+    }
+
+    50% {
+      transform: rotate(var(--rot)) scale(1.35);
+      opacity: 1;
+    }
+
+    100% {
+      transform: rotate(var(--rot)) scale(1);
+      opacity: 0.7;
+    }
+  }
+}

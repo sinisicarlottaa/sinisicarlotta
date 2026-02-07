@@ -1,5 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import { Pill } from '../../../shared/model';
+import { Pill } from '../../../../../shared/model';
 
 @Component({
   selector: 'app-skills',
@@ -33,41 +33,49 @@ export class SkillsComponent {
      ============================ */
 
   pills: Pill[] = [
-    { label: 'UX/UI Design', x: '6%', y: '52%', r: '-10deg' },
-    { label: 'HTML', x: '10%', y: '68%', r: '6deg' },
-    { label: 'SCSS', x: '24%', y: '47%', r: '-6deg' },
-    { label: 'Bootstrap', x: '20%', y: '62%', r: '6deg' },
-    { label: 'JavaScript', x: '28%', y: '76%', r: '-10deg' },
-    { label: 'Angular', x: '54%', y: '53%', r: '-4deg' },
-    { label: 'Websites', x: '46%', y: '66%', r: '6deg' },
-    { label: 'Responsive Design', x: '45%', y: '82%', r: '-8deg' },
-    { label: 'Figma', x: '36%', y: '60%', r: '2deg' },
-    { label: 'WordPress', x: '62%', y: '60%', r: '-23deg' },
-    { label: 'Git', x: '90%', y: '55%', r: '-2deg' },
-    { label: 'Teamwork', x: '79%', y: '47%', r: '-19deg' },
-    { label: 'Attention to Detail', x: '75%', y: '67%', r: '6deg' },
-    { label: 'Adaptability', x: '70%', y: '82%', r: '-8deg' },
+    { label: 'UX/UI Design', x: '6%', y: '42%', r: '-10deg' },
+    { label: 'HTML', x: '10%', y: '61%', r: '6deg' },
+    { label: 'SCSS', x: '24%', y: '36%', r: '-6deg' },
+    { label: 'Bootstrap', x: '19%', y: '53%', r: '6deg' },
+    { label: 'JavaScript', x: '28%', y: '71%', r: '0deg' },
+    { label: 'Angular', x: '54%', y: '39%', r: '-8deg' },
+    { label: 'Websites', x: '46%', y: '57%', r: '6deg' },
+    { label: 'Responsive Design', x: '45%', y: '75%', r: '-8deg' },
+    { label: 'Figma', x: '35%', y: '53%', r: '-14deg' },
+    { label: 'WordPress', x: '62%', y: '48%', r: '-23deg' },
+    { label: 'Git', x: '90%', y: '43%', r: '-2deg' },
+    { label: 'Teamwork', x: '79%', y: '33%', r: '-19deg' },
+    { label: 'Attention to Detail', x: '75%', y: '58%', r: '6deg' },
+    { label: 'Adaptability', x: '70%', y: '75%', r: '-8deg' },
   ];
 
   /* ============================
      MOBILE PILLS
      ============================ */
-
   mobilePills: Pill[] = [
+    // ⬆️ TOP — invariato
     { label: 'HTML', x: '43%', y: '12%', r: '15deg' },
-    { label: 'UX/UI Design', x: '12%', y: '18%', r: '-6deg' },
-    { label: 'SCSS', x: '5%', y: '25%', r: '4deg' },
-    { label: 'JavaScript', x: '60%', y: '18%', r: '-6deg' },
-    { label: 'Git', x: '45%', y: '25%', r: '-14deg' },
-    { label: 'Angular', x: '68%', y: '25%', r: '0deg' },
-    { label: 'WordPress', x: '45%', y: '32%', r: '0deg' },
-    { label: 'Figma', x: '3%', y: '39%', r: '4deg' },
-    { label: 'Bootstrap', x: '10%', y: '31%', r: '-14deg' },
-    { label: 'Teamwork', x: '66%', y: '39%', r: '0deg' },
-    { label: 'Adaptability', x: '27%', y: '40%', r: '9deg' },
-    { label: 'Websites', x: '12%', y: '46%', r: '-4deg' },
-    { label: 'Attention to Detail', x: '48%', y: '47%', r: '-8deg' },
-    { label: 'Responsive Design', x: '0%', y: '54%', r: '7deg' },
+    { label: 'UX/UI Design', x: '12%', y: '23%', r: '-6deg' },
+    { label: 'JavaScript', x: '60%', y: '23%', r: '-6deg' },
+
+    // ↘️ lieve discesa (si toccano)
+    { label: 'SCSS', x: '5%', y: '38%', r: '4deg' },
+    { label: 'Git', x: '45%', y: '34%', r: '-14deg' },
+    { label: 'Angular', x: '68%', y: '37%', r: '0deg' },
+
+    // ↘️ distanza media
+    { label: 'Bootstrap', x: '10%', y: '49%', r: '-14deg' },
+    { label: 'WordPress', x: '45%', y: '48%', r: '0deg' },
+
+    // ↘️ più aria
+    { label: 'Figma', x: '3%', y: '66%', r: '4deg' },
+    { label: 'Adaptability', x: '27%', y: '62%', r: '9deg' },
+    { label: 'Teamwork', x: '66%', y: '60%', r: '0deg' },
+
+    // ↘️ fondo largo e stabile
+    { label: 'Websites', x: '35%', y: '75%', r: '-4deg' },
+    { label: 'Responsive Design', x: '0%', y: '85%', r: '7deg' },
+    { label: 'Attention to Detail', x: '48%', y: '84%', r: '-12deg' },
   ];
 
   /* ============================

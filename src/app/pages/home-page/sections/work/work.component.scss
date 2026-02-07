@@ -6,7 +6,7 @@
    ============================ */
 
 .work {
-  padding: 120px 0 250px;
+  padding: 60px 0 250px;
 }
 
 .work-inner {
@@ -17,17 +17,22 @@
 .work-canvas {
   position: relative;
   min-height: 1300px;
+  margin-top: 40px;
 }
 
 .work-title {
+  display: flex;
+  align-items: baseline; /* allinea bene sans + serif */
+  gap: 14px;
+
   margin-left: 50px;
   margin: 0;
   color: $color-text-primary;
-  line-height: 0.95;
+  line-height: 1;
 }
 
 .work-title .big {
-  display: block;
+  display: inline-block; /* ⬅️ invece di block */
   font-family: $font-sans;
   font-weight: $fw-semibold;
   font-size: $font-big;
@@ -35,7 +40,7 @@
 }
 
 .work-title .script {
-  display: block;
+  display: inline-block; /* ⬅️ invece di block */
   font-family: $font-serif;
   font-weight: $fw-semibold;
   font-style: italic;

@@ -6,7 +6,7 @@
    ============================ */
 
 .skills {
-  padding: 100px 0 120px;
+  padding: 60px 0 60px;
 }
 
 .skills-inner {
@@ -27,17 +27,24 @@
    ============================ */
 
 .skills-title {
+  display: flex;
+  align-items: baseline; /* allinea sans + serif */
+  gap: 14px;
+
   margin-left: 50px;
+  color: $color-text-primary;
+  line-height: 1;
 }
 
 .skills-title h2 {
   margin: 0;
-  color: $color-text-primary;
-  line-height: 0.95;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
 }
 
 .skills-title .big {
-  display: block;
+  display: inline-block; /* ⬅️ invece di block */
   font-family: $font-sans;
   font-weight: $fw-semibold;
   font-size: $font-big;
@@ -45,7 +52,7 @@
 }
 
 .skills-title .script {
-  display: block;
+  display: inline-block; /* ⬅️ invece di block */
   font-family: $font-serif;
   font-weight: $fw-semibold;
   font-style: italic;
@@ -54,6 +61,7 @@
 
 .skills-side {
   text-align: right;
+  padding-left: 20%;
 }
 
 .skills-copy {
@@ -71,7 +79,7 @@
 
 .pills {
   position: relative;
-  height: 600px;
+  height: 500px;
   margin-top: 0;
   overflow: visible;
 }
@@ -202,7 +210,7 @@
 
   .pills {
     height: auto;
-    min-height: 720px;
+    min-height: 370px;
     margin-top: 2px;
     padding-bottom: 120px;
 
